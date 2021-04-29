@@ -1,16 +1,23 @@
 const express = require("express");
-const app = express();
 const morgan = require("morgan");
-const expressStatic = express.static(path.join(__dirname, "./public"));
-const bodyParsing = express.urlencoded({ extended: false });
+const path = require("path");
+const app = express();
 
 app.use(morgan("dev"));
-app.use(expressStatic);
-app.use(bodyParsing);
+app.use(express.static(path.join(__dirname, "./public")));
+app.use(express.urlencoded({ extended: false }));
 
 app.get("/", function (req, res) {
-  res.send("hello world");
+  res.send(" ");
 });
+
+
+const PORT = 3000;
+
+app.listen(PORT, () => {
+  console.log(`App listening in port ${PORT}`);
+});
+
 
 // app.use(express.static(__dirname + "/public"));
 // app.use(express.urlencoded({ extended: false }));
