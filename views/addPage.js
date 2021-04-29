@@ -1,5 +1,11 @@
 const html = require("html-template-tag");
 const layout = require("./layout");
+const { addPage } = require('../views');
+//const router = require("../../../PairExercise.Wizard-news-pt3/router/posts");
+
+router.get("/add", (req, res) => {
+  res.send(addPage());
+});
 
 module.exports = () => layout(html`
   <h3>Add a Page</h3>
